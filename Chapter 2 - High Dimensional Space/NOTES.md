@@ -14,7 +14,7 @@
 <div>CS notation: x = randn( )</div>
 <div><br/></div>
 <div>Function: </div>
-<div style="text-align: center"><img src="Foundations%20of%20Data%20Science.resources/Probability%20Density%20Function%201.png" height="114" width="308"/></div>
+<div style="text-align: center"><img src="NOTES.resources/Probability%20Density%20Function%201.png" height="114" width="308"/></div>
 <div style="text-align: center"><br/></div>
 <div>a.k.a. Probability Density Function (PDF) for Standard Normal Distribution</div>
 <div><br/></div>
@@ -63,7 +63,7 @@
 <div><span style="font-family: &quot;Andale Mono&quot;;">hist_stuff = plt.hist(xx, bins=100)</span></div>
 <div><span style="font-family: &quot;Andale Mono&quot;;">plt.show()</span></div>
 <div><br/></div>
-<div><img src="Foundations%20of%20Data%20Science.resources/EA204A93-19C5-4D07-BB61-8949295DAA30.png" height="252" width="387"/></div>
+<div><img src="NOTES.resources/EA204A93-19C5-4D07-BB61-8949295DAA30.png" height="252" width="387"/></div>
 <div>
 <div style="border-right-width: 30px; min-height: 45px; padding-right: 0px; padding-bottom: 0px;">
 <div>
@@ -139,10 +139,10 @@
 </div>
 <div style=" border-bottom: 0px solid transparent; top: 45px;"/>
 </div>
-<div><img src="Foundations%20of%20Data%20Science.resources/FAE8345E-F935-4177-AC03-406430CA4440.png" height="248" width="387"/></div>
+<div><img src="NOTES.resources/FAE8345E-F935-4177-AC03-406430CA4440.png" height="248" width="387"/></div>
 <div><br/></div>
 <div>So to return to our initial function:</div>
-<div style="text-align: center"><img src="Foundations%20of%20Data%20Science.resources/Probability%20Density%20Function%201.png" height="114" width="308"/></div>
+<div style="text-align: center"><img src="NOTES.resources/Probability%20Density%20Function%201.png" height="114" width="308"/></div>
 <div><br/></div>
 <div>"The factor <span style="">1 / √2<i>π</i> </span> in this expression ensures that the total area under the curve <i>f</i>(<i>x</i>) is equal to one.<sup><span style="font-size: 12px;"><a href="https://en.wikipedia.org/wiki/Normal_distribution#cite_note-4"> </a></span></sup>The factor <span style="">1 / 2</span> in the exponent ensures that the distribution has unit variance (i.e., the variance is equal to one), and therefore also unit standard deviation. This function is symmetric around <span style=""><i>x</i> = 0</span>, where it attains its maximum value <span style="">1 / √2<i>π </i></span>and has <a title="Inflection point">inflection points</a> at <span style=""><i>x</i> = + 1</span> and <span style=""><i>x</i> = − 1.” - Wikipedia</span></div>
 <div><span style="font-family: &quot;Andale Mono&quot;;"><br/></span></div>
@@ -179,11 +179,11 @@
 </div>
 <div>
 <div>
-<div><img src="Foundations%20of%20Data%20Science.resources/D8B5700B-4787-4EE6-A428-8F5E34DEFC03.png" height="248" width="387"/></div>
+<div><img src="NOTES.resources/D8B5700B-4787-4EE6-A428-8F5E34DEFC03.png" height="248" width="387"/></div>
 </div>
 </div>
 <div><br/></div>
-<div><img src="Foundations%20of%20Data%20Science.resources/B126AA9A-7DE4-46B4-A488-869C731577A3.png" height="248" width="387"/></div>
+<div><img src="NOTES.resources/B126AA9A-7DE4-46B4-A488-869C731577A3.png" height="248" width="387"/></div>
 <div><i><span style="font-size: 18px;"><br/></span></i></div>
 <div>Given that in the above example the mean is ten, which we added to the dataset, and the variance should be close to 1 (unit variance), the formula is in effect simply reversing that operation: subtracting the mean, and dividing by the variance (≈1).</div>
 <div><br/></div>
@@ -267,7 +267,7 @@
 <div><br/></div>
 <div><a href="https://terrytao.wordpress.com/2008/06/18/the-strong-law-of-large-numbers/">https://terrytao.wordpress.com/2008/06/18/the-strong-law-of-large-numbers/</a></div>
 <div><br/></div>
-<div>It is important to note that for the Law of Large Numbers to apply, the size of the population does not matter. The number <i>n</i> that should be sampled out of a population so that there is at most a chance 𝛿 that the estimate is off by more than <img src="Foundations%20of%20Data%20Science.resources/15E66256-BC22-4FF1-8E90-A54442C53BE6.svg" height="0" width="0"/> depends only on 𝛿 <i>and </i><img src="Foundations%20of%20Data%20Science.resources/15E66256-BC22-4FF1-8E90-A54442C53BE6.svg" height="0" width="0"/> and not on the overall population size.</div>
+<div>It is important to note that for the Law of Large Numbers to apply, the size of the population does not matter. The number <i>n</i> that should be sampled out of a population so that there is at most a chance 𝛿 that the estimate is off by more than <img src="NOTES.resources/15E66256-BC22-4FF1-8E90-A54442C53BE6.svg" height="0" width="0"/> depends only on 𝛿 <i>and </i><img src="NOTES.resources/15E66256-BC22-4FF1-8E90-A54442C53BE6.svg" height="0" width="0"/> and not on the overall population size.</div>
 <div><br/></div>
 <div><span style="font-size: 18px;"><i>Question: How do you Prove the Law of Large Numbers?</i></span></div>
 <div><i><span style="font-size: 18px;"><br/></span></i></div>
@@ -285,7 +285,7 @@
 <div><br/></div>
 <div>The Central Limit Theorem is concerned with the sampling distribution of the mean.</div>
 <div><br/></div>
-<div>"The central limit theorem states that if you have a population with mean <i>μ</i> and standard deviation <i>σ</i> and take sufficiently large random samples from the population <a>with replacement</a><img src="Foundations%20of%20Data%20Science.resources/14484E1B-664F-4C46-ADA1-10AF3EB57C71.gif" height="1" width="1"/>, then the distribution of the sample means will be approximately normally distributed. This will hold true regardless of whether the source population is normal or skewed, provided the sample size is sufficiently large (usually n <u>&gt;</u> 30). If the population is normal, then the theorem holds true even for samples smaller than 30."</div>
+<div>"The central limit theorem states that if you have a population with mean <i>μ</i> and standard deviation <i>σ</i> and take sufficiently large random samples from the population <a>with replacement</a><img src="NOTES.resources/14484E1B-664F-4C46-ADA1-10AF3EB57C71.gif" height="1" width="1"/>, then the distribution of the sample means will be approximately normally distributed. This will hold true regardless of whether the source population is normal or skewed, provided the sample size is sufficiently large (usually n <u>&gt;</u> 30). If the population is normal, then the theorem holds true even for samples smaller than 30."</div>
 <div><br/></div>
 <div><a href="http://sphweb.bumc.bu.edu/otlt/MPH-Modules/BS/BS704_Probability/BS704_Probability12.html">http://sphweb.bumc.bu.edu/otlt/MPH-Modules/BS/BS704_Probability/BS704_Probability12.html</a></div>
 <div><br/></div>
@@ -337,11 +337,11 @@
 <div><br/></div>
 <div>The general form of the PDF for the normal distribution is:</div>
 <div><br/></div>
-<div style="text-align: center"><img src="Foundations%20of%20Data%20Science.resources/Probability%20Density%20Function%203.png" height="112" width="456"/></div>
+<div style="text-align: center"><img src="NOTES.resources/Probability%20Density%20Function%203.png" height="112" width="456"/></div>
 <div><br/></div>
 <div>In the standard normal distribution <i>µ</i> = 0 and <i>σ</i> = 1, so that gives the simpler version:</div>
 <div><br/></div>
-<div style="text-align: center"><img src="Foundations%20of%20Data%20Science.resources/Probability%20Density%20Function%201.png" height="114" width="308"/></div>
+<div style="text-align: center"><img src="NOTES.resources/Probability%20Density%20Function%201.png" height="114" width="308"/></div>
 <div style="text-align: center"><br/></div>
 <div><a href="https://www.youtube.com/watch?v=8QFpZ3FndBc">https://www.youtube.com/watch?v=8QFpZ3FndBc</a></div>
 <div><i><br/></i></div>
@@ -494,10 +494,10 @@
 <div><br/></div>
 <div>The distribution trend can be seen in these Python generated graphs:</div>
 <div><br/></div>
-<div><img src="Foundations%20of%20Data%20Science.resources/FCA6E41A-729F-460D-9BDC-EB60D87D75D7.png" height="278" width="368"/></div>
-<div><img src="Foundations%20of%20Data%20Science.resources/CAFC28EB-77E5-4461-BBA5-D325B8EC465C.png" height="278" width="368"/></div>
-<div><img src="Foundations%20of%20Data%20Science.resources/C1B7F4AC-DDBF-49BA-BAF5-8D712B086871.png" height="278" width="368"/></div>
-<div><img src="Foundations%20of%20Data%20Science.resources/F7B911F4-1B33-4578-9E0A-E23DD28AB419.png" height="278" width="368"/></div>
+<div><img src="NOTES.resources/FCA6E41A-729F-460D-9BDC-EB60D87D75D7.png" height="278" width="368"/></div>
+<div><img src="NOTES.resources/CAFC28EB-77E5-4461-BBA5-D325B8EC465C.png" height="278" width="368"/></div>
+<div><img src="NOTES.resources/C1B7F4AC-DDBF-49BA-BAF5-8D712B086871.png" height="278" width="368"/></div>
+<div><img src="NOTES.resources/F7B911F4-1B33-4578-9E0A-E23DD28AB419.png" height="278" width="368"/></div>
 <div><a href="https://www.johndcook.com/blog/2017/07/13/concentration_of_measure/">https://www.johndcook.com/blog/2017/07/13/concentration_of_measure/</a></div>
 <div><i><span style="font-size: 18px;"><br/></span></i></div>
 <div>The theorem for volume near the equator of the unit ball goes:</div>
@@ -566,7 +566,7 @@
 <div><i><span style="font-size: 18px;"><br/></span></i></div>
 <div>The d-dimensional spherical Gaussian with zero mean and <span style="font-family: &quot;Helvetica Neue&quot;;">variance</span> <span style="font-family: &quot;Helvetica Neue&quot;;"><span style="left: 583.982px; top: 952.295px;"><i>σ²</i> has the following density function:</span></span></div>
 <div><i><span style="font-size: 18px;"><br/></span></i></div>
-<div style="text-align: center">    <img src="Foundations%20of%20Data%20Science.resources/Screenshot%202020-07-01%20at%2010.39.05.png" height="126" width="530"/></div>
+<div style="text-align: center">    <img src="NOTES.resources/Screenshot%202020-07-01%20at%2010.39.05.png" height="126" width="530"/></div>
 <div><span style="font-family: sans-serif;"><br/></span></div>
 <div><span style="font-family: &quot;Helvetica Neue&quot;;">Although density is maximum at origin, there is little volume. The radius needs to be increased to around √d before there is significant and hence probability mass. Beyond √d the probability density starts to drop off at a much faster rate than the volume increases.</span></div>
 <div><span style="font-family: &quot;Helvetica Neue&quot;;"><br/></span></div>
