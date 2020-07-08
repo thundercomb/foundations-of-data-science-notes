@@ -74,7 +74,7 @@ hist_stuff = plt.hist(xx, bins=100)
 plt.show()
 ```
 
-![](NOTES/image_13.png)
+![](Images/image_13.png)
 
 *Variance and Standard Deviation*
 
@@ -137,7 +137,7 @@ h = plt.hist(x, bins=100)
 plt.show()
 ```
 
-![](NOTES/image_10.png)
+![](Images/image_10.png)
 
 So to return to our initial function:
 
@@ -165,9 +165,9 @@ h = plt.hist(normalised_x, bins=100)
 plt.show()
 ```
 
-![](NOTES/image_7.png)
+![](Images/image_7.png)
 
-![](NOTES/image_18.png)
+![](Images/image_18.png)
 
  
  
@@ -496,13 +496,13 @@ But a better way to visualise it actually comes from this explanation:
 
 The distribution trend can be seen in these Python generated graphs:
 
-![](NOTES/image_4.png)
+![](Images/image_4.png)
 
-![](NOTES/image_15.png)
+![](Images/image_15.png)
 
-![](NOTES/image_6.png)
+![](Images/image_6.png)
 
-![](NOTES/image_17.png)
+![](Images/image_17.png)
 
 [https://www.johndcook.com/blog/2017/07/13/concentration_of_measure/](https://www.johndcook.com/blog/2017/07/13/concentration_of_measure/)
  
@@ -667,7 +667,7 @@ Consider 2-dimensional Gaussian with:
 
 The means are zero and the variances are equal. This will give a /spherical Gaussian/ that can be plotted as follows:
 
-![](NOTES/image_5.png)
+![](Images/image_5.png)
 
 Consider another 2-dimensional Gaussian with:
 
@@ -678,7 +678,7 @@ Consider another 2-dimensional Gaussian with:
 
 The means are zero, but the variances are not the same. This will give an elliptical Gaussian that can be plotted as follows:
 
-![](NOTES/image_16.png)
+![](Images/image_16.png)
 
 Consider another 2-dimensional Gaussian with:
 
@@ -689,7 +689,7 @@ Consider another 2-dimensional Gaussian with:
 
 The means are zero, but the variances are not the same, and the off-diagonals are non-zero. This will give an elliptical Gaussian that can be plotted as follows:
 
-![](NOTES/image_8.png)
+![](Images/image_8.png)
 
 It is useful to step through the links between the probability density function, cumulative distribution function, and a spherical Guassian provided in the below notes:
 
