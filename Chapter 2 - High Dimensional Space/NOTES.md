@@ -7,18 +7,17 @@
 [https://www.inf.ed.ac.uk/teaching/courses/mlpr/2017/notes/w2b_univariate_gaussian.pdf](https://www.inf.ed.ac.uk/teaching/courses/mlpr/2017/notes/w2b_univariate_gaussian.pdf)
 
 Math notation:</br>
-<div style="text-align:center">
-<img src="https://render.githubusercontent.com/render/math?math=X \sim N( \mu, \sigma )">
+
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=X \sim N( \mu, \sigma )">
 </br>
-<img src="https://render.githubusercontent.com/render/math?math=X \sim N( 0, 1 )">
-</div>
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=X \sim N( 0, 1 )">
+
 
 CS notation: x = randn( )
 
 Function: 
-<div style="text-align:center">
-<img src="https://render.githubusercontent.com/render/math?math=f(x)={\frac {1}{\sqrt {2\pi }}}%20%20e^{-\frac{x^{2}}{2}}">
-</div>
+
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=f(x)={\frac {1}{\sqrt {2\pi }}}%20%20e^{-\frac{x^{2}}{2}}">
 
 a.k.a. Probability Density Function (PDF) for Standard Normal Distribution
 
@@ -28,16 +27,16 @@ Let there be a curve with mean *μ* and standard deviation *σ*
 Then inflection points occur where *x* = *μ* ± *σ*
  
  
-*μ* : Mu
-*σ* : lower case sigma
+*μ* : Mu  
+*σ* : lower case sigma  
 
 [https://www.thoughtco.com/inflection-points-of-a-normal-distribution-3126446](https://www.thoughtco.com/inflection-points-of-a-normal-distribution-3126446)
 
 One property of the inflection point is that the second derivative of the function will be zero (however, not all points where the 2nd derivative of the function is zero, will be an inflection point).
 
-So for a graph *y = f( x )*
-Given an inflection point at *x = a*
-Then *f’’( a )* = 0
+So for a graph *y = f( x )*  
+Given an inflection point at *x = a*  
+Then *f’’( a )* = 0  
 
 This can be proven using the Probability Density Function, as illustrated in the reference document above. The PDF is generally used in the context of continuous (rather than discrete) random variables. It can be used to specify the probability that a random variable falls *within a particular range of values*, as opposed to taking on a particular value (at a particular value the probability is zero).
 
@@ -45,13 +44,17 @@ See [https://en.wikipedia.org/wiki/Probability_density_function](https://en.wiki
 
 *Variance* (for continuous variables) can be expressed as:
 
-<img src="https://render.githubusercontent.com/render/math?math=\sigma^2=\sum \frac{(X_i - X)^2}{N}">  
-Where <img src="https://render.githubusercontent.com/render/math?math=\sigma^2"> = variance
-<img src="https://render.githubusercontent.com/render/math?math=(X_i - X)^2"> = (Individual Value – Mean)^2
-<img src="https://render.githubusercontent.com/render/math?math=\sum">   = Summation of function associated with it
-<img src="https://render.githubusercontent.com/render/math?math={N}"> = Total number of data points in our dataset
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\sigma^2=\sum \frac{(X_i - X)^2}{N}">  
 
-Can also be expressed as: <img src="https://render.githubusercontent.com/render/math?math=\sigma^2=\sum \frac{(x_i - \mu)^2}{N}">  
+Where <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\sigma^2"> = variance  
+
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=(X_i - X)^2"> = (Individual Value – Mean)²  
+
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\sum">   = Summation of function associated with it  
+
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math={N}"> = Total number of data points in our dataset  
+
+Can also be expressed as: <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\sigma^2=\sum \frac{(x_i - \mu)^2}{N}">  
 
 For discrete variables it is different, but the above is relevant in the context of the Gaussian curve.
 
@@ -138,10 +141,10 @@ plt.show()
 So to return to our initial function:
 
 <div style="text-align:center">
-<img src="https://render.githubusercontent.com/render/math?math=f(x)={\frac {1}{\sqrt {2\pi }}}%20%20e^{-\frac{x^{2}}{2}}">
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=f(x)={\frac {1}{\sqrt {2\pi }}}%20%20e^{-\frac{x^{2}}{2}}">
 </div>
 
-"The factor <img src="https://render.githubusercontent.com/render/math?math=\frac {1}{\sqrt {2\pi }}">  in this expression ensures that the total area under the curve *f* ( *x* ) is equal to one. The factor <img src="https://render.githubusercontent.com/render/math?math=\frac {1}{2}"> in the exponent ensures that the distribution has unit variance (i.e., the variance is equal to one), and therefore also unit standard deviation. This function is symmetric around *x* = 0, where it attains its maximum value <img src="https://render.githubusercontent.com/render/math?math=\frac {1}{\sqrt {2\pi }}"> and has [inflection points]() at *x* = + 1 and *x* = − 1.” - Wikipedia
+"The factor <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\frac {1}{\sqrt {2\pi }}">  in this expression ensures that the total area under the curve *f* ( *x* ) is equal to one. The factor <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\frac {1}{2}"> in the exponent ensures that the distribution has unit variance (i.e., the variance is equal to one), and therefore also unit standard deviation. This function is symmetric around *x* = 0, where it attains its maximum value <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\frac {1}{\sqrt {2\pi }}"> and has [inflection points]() at *x* = +1 and *x* = −1.” - Wikipedia
 
 ### Question: How do you shift a distribution to zero mean?
  
@@ -244,7 +247,7 @@ There is an important distinction between the Weak and the Strong Law of Large N
 
 *Weak Law:*
 
-( lim *n*→∞) Pr( | *x̅* - *μ*| ≥ *ϵ* ) = 0
+( lim *n*→∞) Pr( | *x̅* - *μ* | ≥ *ϵ* ) = 0
 
 *Strong Law:*
 
@@ -275,10 +278,11 @@ The Central Limit Theorem is concerned with the sampling distribution of the mea
 
 [http://sphweb.bumc.bu.edu/otlt/MPH-Modules/BS/BS704_Probability/BS704_Probability12.html](http://sphweb.bumc.bu.edu/otlt/MPH-Modules/BS/BS704_Probability/BS704_Probability12.html)
 
-Suppose the mean of the sample is *x̅*
-The size of the sample is *n*
-The standard deviation of the sample is *s*
-Then there are 4 aspects:
+Suppose:  
+The mean of the sample is *x̅*  
+The size of the sample is *n*  
+The standard deviation of the sample is *s*  
+Then there are 4 aspects:  
 1. the sampling distribution of the mean will be less spread than the values in the population
 2. the sampling distribution will be well modelled by a normal distribution
 3. the spread of the sampling distribution is related to the spread of the population values
@@ -288,7 +292,7 @@ Then there are 4 aspects:
 
 "The square of the distance between two points *y* and *z* can be viewed as the sum of *d* independent samples of a random variable *x* that is the *squared difference of two Gaussians*.”
 
-<img src="https://render.githubusercontent.com/render/math?math=\mid \textbf{y} - \textbf{z} \mid^2 = \sum_{i=1}^d%20( y_i - z_i )^2">
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\mid \textbf{y} - \textbf{z} \mid^2 = \sum_{i=1}^d%20( y_i - z_i )^2">
 
 
 Based on the Law of Large Numbers we can say that, with high probability, the sum is close to the sum’s expectation.
@@ -301,19 +305,19 @@ Probability distribution can occur in two ways, depending on the characteristics
  
 **PMF** - Probability mass function relates to the use of discrete random variables
 
-Pr( *X* ( *xᵢ* ) )=Pr( *X* = *xᵢ* ), for i=1,2,3,...,
+Pr( *X* ( *xᵢ* ) ) = Pr( *X* = *xᵢ* ), for i=1, 2, 3,...,
 
-∑ Pr( *X* ( *xᵢ* ) ) = 1
-Pr( *xᵢ* ) > 0
+∑ Pr( *X* ( *xᵢ* ) ) = 1  
+Pr( *xᵢ* ) > 0  
 Pr( *x* ) = 0 for all other x
 
 **PDF** - Probability density function relates to the use of continuous random variables
 
-fX( x )=dFX( x )dx= *F* ‘ *X* ( x ), if FX( x ) is differentiable at x
+fX( x ) = *dFX*( *x* )*dx*= *F*‘*X*( *x* ), if *FX*( *x* ) is differentiable at *x*
  
-Pr( -∞ ≤ *X* ≤ ∞) = <img src="https://render.githubusercontent.com/render/math?math=\int_{-\infty}^{\infty} fX (x) dx">
+Pr( -∞ ≤ *X* ≤ ∞) = <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\int_{-\infty}^{\infty} fX (x) dx">
 
-Pr( *a* ≤ *X* ≤ *b* ) = <img src="https://render.githubusercontent.com/render/math?math=\int_{a}^{b} fX (x) dx">
+Pr( *a* ≤ *X* ≤ *b* ) = <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\int_{a}^{b} fX (x) dx">
 
  
 A PDF in fact *describes* a continuous random variable. I.e. if a random variable takes values on a continuous set, that by itself isn’t enough to make it a continuous random variable.
@@ -325,34 +329,34 @@ The probability that X is any *particular* point is in fact 0 (the integral wher
 The general form of the PDF for the normal distribution is:
 
 <div style="text-align:center">
-<img src="https://render.githubusercontent.com/render/math?math=f(x%3B\mu ,\sigma ^{2})={\frac {1}{\sigma {\sqrt {2\pi }}}}\hspace{1mm}e^{-{\frac {1}{2}}\left({\frac {x-\mu }{\sigma }}\right)^{2}}">
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=f(x%3B\mu ,\sigma ^{2})={\frac {1}{\sigma {\sqrt {2\pi }}}}\hspace{1mm}e^{-{\frac {1}{2}}\left({\frac {x-\mu }{\sigma }}\right)^{2}}">
 </div>
 
-*Note: ‘ x; µ, σ* ‘ implies that *x* depends on the other two parameters.
+*Note: ‘ x; µ, σ ‘* implies that *x* depends on the other two parameters.
 
 In the standard normal distribution *µ* = 0 and *σ* = 1, so that gives the simpler version:
 
 <div style="text-align:center">
-<img src="https://render.githubusercontent.com/render/math?math=f(x)={\frac {1}{\sqrt {2\pi }}}\hspace{1mm}e^{-\frac{x^{2}}{2}}">
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=f(x)={\frac {1}{\sqrt {2\pi }}}\hspace{1mm}e^{-\frac{x^{2}}{2}}">
 </div>
 
 [https://www.youtube.com/watch?v=8QFpZ3FndBc](https://www.youtube.com/watch?v=8QFpZ3FndBc)
  
  
-To prove that there is a vanishingly small probability that a randomly generated point **z**  in *d* -dimensions would lie in the unit ball, Blum et al use a PDF with variance set at <img src="https://render.githubusercontent.com/render/math?math={\frac {1}{2\pi }}"> so that the Gaussian probability density equals one at the origin (p. 7). This relationship is explained over here:
+To prove that there is a vanishingly small probability that a randomly generated point **z**  in *d*-dimensions would lie in the unit ball, Blum et al use a PDF with variance set at <img style="float: right;" src="https://render.githubusercontent.com/render/math?math={\frac {1}{2\pi }}"> so that the Gaussian probability density equals one at the origin (p. 7). This relationship is explained over here:
 
 [https://books.google.co.uk/books?id=AKuMj4PN_EMC&pg=PA131&lpg=PA131&dq=probability+%22density+at+the+origin%22&source=bl&ots=EMqkf67xBd&sig=ACfU3U0TRJIjhaLxZlpSY2eEOxz5au52JA&hl=en&sa=X&ved=2ahUKEwiQ4I64k4bqAhUTrHEKHakYBM0Q6AEwB3oECAgQAQ#v=onepage&q=probability%20%22density%20at%20the%20origin%22&f=false](https://books.google.co.uk/books?id=AKuMj4PN_EMC&amp;pg=PA131&amp;lpg=PA131&amp;dq=probability+%22density+at+the+origin%22&amp;source=bl&amp;ots=EMqkf67xBd&amp;sig=ACfU3U0TRJIjhaLxZlpSY2eEOxz5au52JA&amp;hl=en&amp;sa=X&amp;ved=2ahUKEwiQ4I64k4bqAhUTrHEKHakYBM0Q6AEwB3oECAgQAQ#v=onepage&amp;q=probability%20%22density%20at%20the%20origin%22&amp;f=false)
 
 So, given the formula:
 
 <div style="text-align:center">
-<img src="https://render.githubusercontent.com/render/math?math=P( \textbf{x} = 0 ) = \frac{1}{(2\pi\sigma^2)^{N/2}}">
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=P( \textbf{x} = 0 ) = \frac{1}{(2\pi\sigma^2)^{N/2}}">
 </div>
 
-if we set the variance to <img src="https://render.githubusercontent.com/render/math?math=\frac{1}{2\pi}"> then the probability at *x* = 0 becomes 1 because the function becomes <img src="https://render.githubusercontent.com/render/math?math=1^{N/2}"> and 1 to the power of anything remains 1.
+if we set the variance to <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\frac{1}{2\pi}"> then the probability at *x* = 0 becomes 1 because the function becomes <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=1^{N/2}"> and 1 to the power of anything remains 1.
 
 The argument goes:
-* there is vanishingly small probability that a random point **z**  in *d* -dimensions would lie in the unit ball
+* there is vanishingly small probability that a random point **z** in *d*-dimensions would lie in the unit ball
 * this implies the integral of the probability density over the unit ball is vanishingly small
 * and because the probability density in the unit ball is bounded below by a constant ...
 * the unit ball must have vanishingly small volume
@@ -370,16 +374,20 @@ There is a more general version called the *Master Tail Bounds Theorem* from whi
 
 In summary, the theorem says that given:
 
-<img src="https://render.githubusercontent.com/render/math?math=x = x_1 %2B x_2 %2B \ldots %2B x_n">   , and <img src="https://render.githubusercontent.com/render/math?math=x_i"> is iid
-Variance ≤ <img src="https://render.githubusercontent.com/render/math?math=\sigma^2">
-*µ* = 0
-<img src="https://render.githubusercontent.com/render/math?math=0 \le a \le \sqrt{2n\sigma^2}">
-<img src="https://render.githubusercontent.com/render/math?math=\mid{E(x^s_i)}\mid \le \sigma^2s! \hspace{1cm}  for\hspace{1mm}s = 3, 4\hspace{1mm}\ldots\hspace{1mm}\lfloor(a^2/4n\sigma^2)\rfloor">  
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=x = x_1 %2B x_2 %2B \ldots %2B x_n">   , and <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=x_i"> is iid  
+
+Variance ≤ <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\sigma^2">  
+
+*µ* = 0  
+
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=0 \le a \le \sqrt{2n\sigma^2}">  
+
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\mid{E(x^s_i)}\mid \le \sigma^2s! \hspace{1cm}  \mathrm{for}\hspace{1mm}s = 3, 4\hspace{1mm}\ldots\hspace{1mm}\lfloor(a^2/4n\sigma^2)\rfloor">  
 
 Then:
-<img src="https://render.githubusercontent.com/render/math?math=P( \mid{x}\mid \ge a ) \le 3e^{\frac{-a^2}{12n\sigma^2}}">  
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=P( \mid{x}\mid \ge a ) \le 3e^{\frac{-a^2}{12n\sigma^2}}">  
 
-It gives a much stronger bound with respect to *a* than Markov and Chebyshev, for example. Here we have an exponential drop off with respect to *a*, whereas Markov gives us <img src="https://render.githubusercontent.com/render/math?math=\frac{1}{a}"> and Chebyshev gives us <img src="https://render.githubusercontent.com/render/math?math=\frac{1}{a^2}">
+It gives a much stronger bound with respect to *a* than Markov and Chebyshev, for example. Here we have an exponential drop off with respect to *a*, whereas Markov gives us <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\frac{1}{a}"> and Chebyshev gives us <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\frac{1}{a^2}">
 
 [https://medium.com/jun-devpblog/data-science-1-expectation-variance-law-of-large-numbers-2ff49caf8b7d](https://medium.com/jun-devpblog/data-science-1-expectation-variance-law-of-large-numbers-2ff49caf8b7d)
 
@@ -405,9 +413,9 @@ If we fix *𝛜* and *d* ⟶ ∞ then the above approaches 0. Thus the volume of
 
 Given a unit ball *S* in *d*-dimensions the implication of the above is that at least 1 - *e*<sup>-*𝛜 d*</sup> of the volume of *S* is concentrated in a *d*-dimensional annulus of width *𝛜* at the perimeter. We can see that *e*<sup>-*𝛜 d*</sup> decreases rapidly as *d* increases, eg. for 𝛜 = 0.1, *d* = 3, *e*<sup>-*𝛜 d*</sup> = 0.741, and for 𝛜 = 0.1, d = 100, *e*<sup>-*𝛜 d*</sup> = 0.000045. So 1 - *e*<sup>-*𝛜 d*</sup> ⟶ 1 as *d* ⟶ ∞.
 
-Another way of looking at it is to say that the unit ball’s volume is concentrated in a *d*-dimensional annulus of width *O* ( 1/ *d* ) or (1 - 1/ *d* ) near the perimeter. Given a ball of radius *r*, the width where the volume is concentrated is *O* ( *r* / *d* ).
+Another way of looking at it is to say that the unit ball’s volume is concentrated in a *d*-dimensional annulus of width *O*( 1/ *d* ) or (1 - 1/ *d* ) near the perimeter. Given a ball of radius *r*, the width where the volume is concentrated is *O*( *r* / *d* ).
 
-Q: Other than the intuition that large *d* accounts for the relationship between volume and the width of the annulus, how is the leap made, exactly, to the annulus’ width *O* ( 1/ *d* )?
+Q: Other than the intuition that large *d* accounts for the relationship between volume and the width of the annulus, how is the leap made, exactly, to the annulus’ width *O*( 1 / *d* )?
 
 ### Question: How do you calculate the volume of the unit ball in d dimensions?
 
@@ -415,35 +423,35 @@ As *d* ⟶ ∞ , the volume of the ball goes to zero. In the first few dimension
 
 The volume can be calculated using integration. There is more than one way. Integration in Cartesian coordinates have complicated integral limits, so polar coordinates are preferred.
 
-Let *V* ( *d* ) is the volume of the unit ball, and *A* ( *d* ) is the surface. The proof starts with:
+Let *V*( *d* ) is the volume of the unit ball, and *A*( *d* ) is the surface. The proof starts with:
 
-<img src="https://render.githubusercontent.com/render/math?math=V(d) = \int_{S^d}\int_{r=0}^{1} r^{d-1}\hspace{1mm}drd\Omega">  
-<img src="https://render.githubusercontent.com/render/math?math=V(d) = \int_{S^d}\hspace{1mm}d\Omega\int_{r=0}^{1} r^{d-1}\hspace{1mm}dr">  
- <img src="https://render.githubusercontent.com/render/math?math=V(d) = \frac{1}{d}\int_{S^d}\hspace{1mm}d\Omega">  
-<img src="https://render.githubusercontent.com/render/math?math=V(d) = \frac{A(d)}{d}">  
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=V(d) = \int_{S^d}\int_{r=0}^{1} r^{d-1}\hspace{1mm}drd\Omega">  
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=V(d) = \int_{S^d}\hspace{1mm}d\Omega\int_{r=0}^{1} r^{d-1}\hspace{1mm}dr">  
+ <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=V(d) = \frac{1}{d}\int_{S^d}\hspace{1mm}d\Omega">  
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=V(d) = \frac{A(d)}{d}">  
  
  
-But this stops integration at the surface of the sphere. To allow it to go all the way to infinity, involve an exponential in a function called *I* ( *d* ). *I* ( *d* ) can then be calculated in both Cartesian and polar coordinates, which yields:
+But this stops integration at the surface of the sphere. To allow it to go all the way to infinity, involve an exponential in a function called *I*( *d* ). *I*( *d* ) can then be calculated in both Cartesian and polar coordinates, which yields:
 
-<img src="https://render.githubusercontent.com/render/math?math=I(d) = \pi^{\frac{d}{2}}">  
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=I(d) = \pi^{\frac{d}{2}}">  
 
 and:
 
-<img src="https://render.githubusercontent.com/render/math?math=I(d) = A(d)\frac{1}{2}\Gamma(\frac{d}{2})">  
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=I(d) = A(d)\frac{1}{2}\Gamma(\frac{d}{2})">  
 
 which together gives:
 
-<img src="https://render.githubusercontent.com/render/math?math=A(d) = \frac{\pi^{\frac{d}{2}}}{\frac{1}{2}\Gamma(\frac{d}{2})}">  
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=A(d) = \frac{\pi^{\frac{d}{2}}}{\frac{1}{2}\Gamma(\frac{d}{2})}">  
 
-That produces the lemma for the surface area *A* ( *d* ) and the volume *V* ( *d* ):
+That produces the lemma for the surface area *A*( *d* ) and the volume *V*( *d* ):
 
-<img src="https://render.githubusercontent.com/render/math?math=A(d) = \frac{2\pi^{\frac{d}{2}}}{\Gamma(\frac{d}{2})}">  
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=A(d) = \frac{2\pi^{\frac{d}{2}}}{\Gamma(\frac{d}{2})}">  
 
 and
 
-<img src="https://render.githubusercontent.com/render/math?math=V(d) = \frac{2\pi^{\frac{d}{2}}}{d\Gamma(\frac{d}{2})}">  
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=V(d) = \frac{2\pi^{\frac{d}{2}}}{d\Gamma(\frac{d}{2})}">  
 
-Since *π* ^( *d* / 2 ) is an exponential in d / 2 and Γ( *d* / 2 ) grows as the factorial of d / 2, the lim *d* ⟶ ∞ *V*( *d* ) = 0 (as claimed at the start).
+Since *π*^( *d* / 2 ) is an exponential in d / 2 and Γ( *d* / 2 ) grows as the factorial of d / 2, the lim *d* ⟶ ∞ *V*( *d* ) = 0 (as claimed at the start).
 
 An intuitive explanation of the formula is available courtesy of Zach Star:
 
@@ -467,15 +475,15 @@ The claim is that in high dimensions most of a unit ball's volume is concentrate
 
 [https://news.ycombinator.com/item?id=3995615](https://news.ycombinator.com/item?id=3995615)
 
-Blum et al puts it as follows: “most of the volume of the unit ball lies in the thin slab of points whose dot product with *v* has magnitude *O* ( 1 / √*d* )”, which can be shown by fixing **v** as the first coordinate vector. From this it can be shown that, with high probability, two random points in the unit ball are nearly orthogonal. Specifically their vectors will be nearly orthogonal, they will be close to the surface, and have length 1 - *O* ( 1 /*d* ). Fixing the first as “north”, the second will have a projection of ± *O* ( 1 / √*d* ), which is the same as their dot product. This means that with high probability the angle between the vectors will be *π* / 2 ± *O* ( 1 / √*d* ).
+Blum et al puts it as follows: “most of the volume of the unit ball lies in the thin slab of points whose dot product with *v* has magnitude *O*( 1 / √*d* )”, which can be shown by fixing **v** as the first coordinate vector. From this it can be shown that, with high probability, two random points in the unit ball are nearly orthogonal. Specifically their vectors will be nearly orthogonal, they will be close to the surface, and have length 1 - *O*( 1 /*d* ). Fixing the first as “north”, the second will have a projection of ± *O*( 1 / √*d* ), which is the same as their dot product. This means that with high probability the angle between the vectors will be *π* / 2 ± *O*( 1 / √*d* ).
 
 **In summary:**
 
 1. As *d* ⟶ ∞ , the volume of the ball goes to zero
-2. A unit ball’s volume is concentrated around its ‘equator’, i.e.: | x₁ | = *O* ( 1 / √*d* )
+2. A unit ball’s volume is concentrated around its ‘equator’, i.e.: | x₁ | = *O*( 1 / √*d* )
 3. The vectors of two random points in the unit ball tend to be (nearly) orthogonal
-4. The vectors tend to be close to the surface, with length 1 - *O* ( 1 /*d* )
-5. The angles between the vectors tend to be *π* / 2 ± *O* ( 1 / √*d* )
+4. The vectors tend to be close to the surface, with length 1 - *O*( 1 /*d* )
+5. The angles between the vectors tend to be *π* / 2 ± *O*( 1 / √*d* )
 
 Here is an attempt to explain it intuitively:
 
@@ -500,13 +508,13 @@ The distribution trend can be seen in these Python generated graphs:
  
 The theorem for volume near the equator of the unit ball goes:
 
-For *c* ≥ 1 and *d* ≥ 3, at least a <img src="https://render.githubusercontent.com/render/math?math=1 - \frac{2}{c} e^-\frac{c^2}{2}">   fraction of the volume of the d-dimensional unit ball has <img src="https://render.githubusercontent.com/render/math?math=\mid{x_1}\mid \le \frac{c}{\sqrt{d-1}}">  .
+For *c* ≥ 1 and *d* ≥ 3, at least a <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=1 - \frac{2}{c} e^-\frac{c^2}{2}">   fraction of the volume of the d-dimensional unit ball has <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\mid{x_1}\mid \le \frac{c}{\sqrt{d-1}}">  .
 
 ### Question: What does it mean that two coordinates are nearly orthogonal?
 
 The theorem for near orthogonality goes:
 
-Consider drawing n points *x*₁, *x*₂, … , *x*<sub>*n*</sub> at random from the unit ball. With probability 1 - *O* ( 1 / *n* )
+Consider drawing n points *x*₁, *x*₂, … , *x*<sub>*n*</sub> at random from the unit ball. With probability 1 - *O*( 1 / *n* )
 
 1. | *x*ᵢ | ≥ 1 - ( 2 ln *n* ) / *n* for all *i*, and
 2. | *x*ᵢ , *x*ⱼ | ≤ √( 6 ln *n* ) / √( *d* - 1 ) for all *i* ≠ *j*
@@ -524,11 +532,11 @@ One way of measuring orthogonality is to calculate the squared dot product of a 
  
 Generating points *x*₁, *x*₂, …, *x*<sub>*d*</sub> each with coordinates an independent Gaussian variable:
    using zero mean, unit variance Gaussian, i.e.
-   <img src="https://render.githubusercontent.com/render/math?math=\frac{1}{\sqrt{2\pi}} e^-\frac{x^2}{2}">   on the real line
+   <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\frac{1}{\sqrt{2\pi}} e^-\frac{x^2}{2}">   on the real line
 
 Gives probability density of *x*:
 
-<img src="https://render.githubusercontent.com/render/math?math=p(\mathbf{x}) = \frac{1}{(2\pi)^{d/2}} e^-\frac{x^{2}_{1} %2B x^{2}_{1} %2B \ldots %2B x^{2}_{d}}{2}">  
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=p(\mathbf{x}) = \frac{1}{(2\pi)^{d/2}} e^-\frac{x^{2}_{1} %2B x^{2}_{1} %2B \ldots %2B x^{2}_{d}}{2}">  
 
 with spherical symmetry.
 
@@ -538,13 +546,13 @@ Gives a distribution that is uniform over the sphere’s surface
 *Note:* once normalised, the coordinates are no longer independent
 
 Generating a point **y** uniformly over the unit ball volume,
-we must scale the surface point **x** / | **x** | by a scalar *p* ∈ [0, 1] [2]
+we must scale the surface point **x** / | **x** | by a scalar *ρ* ∈ [0, 1]  
 
 Gives a point:
 
-<img src="https://render.githubusercontent.com/render/math?math=y = p\frac{\mathbf{x}}{\mid\mathbf{x}\mid}">  
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=y = p\frac{\mathbf{x}}{\mid\mathbf{x}\mid}">  
 
-*Note:* The distribution of *p* as a function of *r* is not uniform across the ball. Instead the density of *p* at distance *r* is proportional to *r*<sup>*d* - 1</sup> in *d* dimensions. Solving <img src="https://render.githubusercontent.com/render/math?math=\int_{r=0}^{r=1} cr^{d-1}dr = 1">   we see that we should set *c* = *d*. Another way of looking at it is knowing that the density at radius *r* is exactly <img src="https://render.githubusercontent.com/render/math?math=\frac{d}{dr}(r^d V_d) = dr^{d-1}V_d"> . So we would want to pick *p*(*r*) with density equal to *dr*<sup>*d*-1</sup> for *r* over [0,1].
+*Note:* The distribution of *ρ* as a function of *r* is not uniform across the ball. Instead the density of *ρ* at distance *r* is proportional to *r*<sup>*d* - 1</sup> in *d* dimensions. Solving <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\int_{r=0}^{r=1} cr^{d-1}dr = 1">   we see that we should set *c* = *d*. Another way of looking at it is knowing that the density at radius *r* is exactly <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\frac{d}{dr}(r^d V_d) = dr^{d-1}V_d"> . So we would want to pick *ρ*(*r*) with density equal to *dr*<sup>*d*-1</sup> for *r* over [0,1].
 
 [https://stats.stackexchange.com/questions/85916/distribution-of-scalar-products-of-two-random-unit-vectors-in-d-dimensions](https://stats.stackexchange.com/questions/85916/distribution-of-scalar-products-of-two-random-unit-vectors-in-d-dimensions)
 
@@ -565,9 +573,9 @@ This blog post discusses a variety of ways with some pseudo code that is fairly 
 ### Question: How do Gaussians behave in Higher Dimensions?
  
  
-The d-dimensional spherical Gaussian with zero mean and variance *σ*² has the following density function: 
+The *d*-dimensional spherical Gaussian with zero mean and variance *σ*² has the following density function: 
  
-<img src="https://render.githubusercontent.com/render/math?math=p(\mathbf{x}) = \frac{1}{(2\pi)^{d/2}\sigma^d}\mathrm{exp}(-\frac{\mid\mathbf{x}\mid^2}{2\sigma^2})">  
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=p(\mathbf{x}) = \frac{1}{(2\pi)^{d/2}\sigma^d}\mathrm{exp}(-\frac{\mid\mathbf{x}\mid^2}{2\sigma^2})">  
 
 Although density is maximum at origin, there is little volume. The radius needs to be increased to around √d before there is significant and hence probability mass. Beyond √d the probability density starts to drop off at a much faster rate than the volume increases.
 
@@ -580,7 +588,7 @@ The algorithm is ultimately simple:
 - Calculate the distance between pairs of points
 - Points whose distance apart is smaller are from the same Gaussian (vs points further apart)
 
-Firstly, from the Gaussian Annulus Theorem, which states that for large /d/, the /d/ -dimensional Gaussian is located in the annulus with high probability, we can derive that for two points *x* and *y*:
+Firstly, from the Gaussian Annulus Theorem, which states that for large *d*, the *d*-dimensional Gaussian is located in the annulus with high probability, we can derive that for two points *x* and *y*:
 
 | **x** - **y** | = √2<i>d</i> ± *O*(1)
 
@@ -605,9 +613,9 @@ A quick review of PDF and CDF is in order. Remember, the PDF is the gradient of 
 
 In a Gaussian distribution, the parameters we are trying to discover in a sample of data can be determined as follows:
 
-<img src="https://render.githubusercontent.com/render/math?math=\hat{\mu} = \frac{1}{N}\displaystyle\sum_{n=1}^{N}\mathbf{x}_n">  
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\hat{\mu} = \frac{1}{N}\displaystyle\sum_{n=1}^{N}\mathbf{x}_n">  
 
-<img src="https://render.githubusercontent.com/render/math?math=\sigma^2 = \frac{1}{N}\displaystyle\sum_{n=1}^{N}(\mathbf{x}_n - \hat{\mu})^2">  
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\sigma^2 = \frac{1}{N}\displaystyle\sum_{n=1}^{N}(\mathbf{x}_n - \hat{\mu})^2">  
  
 
 A distribution’s width scales with the standard deviation (not the variance). So if the two variances *σ*² = 4 and *σ*² = 1, then the width in the first distribution will be twice that in the second.
@@ -619,12 +627,12 @@ In *d* dimensions:
 i.e. **Σ** is a covariance matrix ( *d*-by-*d* square matrix) with element *σ*ᵢⱼ at row *i* and column *j*
 
 
-<img src="https://render.githubusercontent.com/render/math?math=p(\mathbf{x}\mid\mathbf{\mu},\mathbf{\Sigma}) = \frac{1}{(2\pi)^{d/2}\mid\mathbf{\Sigma}\mid^{1/2}}\mathrm{exp}\big(-\frac{1}{2}(\mathbf{x} - \mathbf{\mu})^T\mathbf{\Sigma}^{-1}(\mathbf{x} - \mathbf{\mu})\big)">  
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=p(\mathbf{x}\mid\mathbf{\mu},\mathbf{\Sigma}) = \frac{1}{(2\pi)^{d/2}\mid\mathbf{\Sigma}\mid^{1/2}}\mathrm{exp}\big(-\frac{1}{2}(\mathbf{x} - \mathbf{\mu})^T\mathbf{\Sigma}^{-1}(\mathbf{x} - \mathbf{\mu})\big)">  
 
 Values along the leading diagonal gives the variance of each variable, and off-diagonal values measure correlations between variables.
  
  
-The mean vector **µ** is the expectation of **x**:
+The mean vector **µ** is the expectation of **x**:  
 **µ** = *E*( **x** )
 
 The covariance matrix **Σ** is the expectation of the deviation of **x** from the mean:
@@ -646,14 +654,14 @@ On the other hand *σᵢⱼ* = 0 implies statistical independence.
 
 The correlation coefficient, a.k.a. Pearson correlation coefficient, is a value between -1 and 1 obtained by normalising the covariance *σᵢⱼ* by the square root of the product of the variances *σᵢᵢ* and *σⱼⱼ*
  
- <img src="https://render.githubusercontent.com/render/math?math=\rho(x_i, x_j) = \rho_{ij} = \frac{{\Large \sigma}_{\small ij}}{\sqrt{ \Large \sigma_{\small ii}\sigma_{\small jj}}}">  
+ <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\rho(x_i, x_j) = \rho_{ij} = \frac{{\Large \sigma}_{\small ij}}{\sqrt{ \Large \sigma_{\small ii}\sigma_{\small jj}}}">  
 
 
 Consider 2-dimensional Gaussian with:
 
-<img src="https://render.githubusercontent.com/render/math?math=\mathbf{\mu} = \left( {\begin{array}{cc} 0 \\ 0 \end{array} } \right)">  
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\mathbf{\mu} = \left( {\begin{array}{cc} 0 \\ 0 \end{array} } \right)">  
 
-<img src="https://render.githubusercontent.com/render/math?math=\mathbf{\Sigma} = \left( {\begin{array}{cc} 1\hspace{4mm}0 \\ 0\hspace{4mm}1 \end{array} } \right)">  
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\mathbf{\Sigma} = \left( {\begin{array}{cc} 1\hspace{4mm}0 \\ 0\hspace{4mm}1 \end{array} } \right)">  
  
 
 The means are zero and the variances are equal. This will give a /spherical Gaussian/ that can be plotted as follows:
@@ -662,9 +670,9 @@ The means are zero and the variances are equal. This will give a /spherical Gaus
 
 Consider another 2-dimensional Gaussian with:
 
-<img src="https://render.githubusercontent.com/render/math?math=\mathbf{\mu} = \left( {\begin{array}{cc} 0 \\ 0 \end{array} } \right)">  
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\mathbf{\mu} = \left( {\begin{array}{cc} 0 \\ 0 \end{array} } \right)">  
 
-<img src="https://render.githubusercontent.com/render/math?math=\mathbf{\Sigma} = \left( {\begin{array}{cc} 1\hspace{4mm}0 \\ 0\hspace{4mm}4 \end{array} } \right)">  
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\mathbf{\Sigma} = \left( {\begin{array}{cc} 1\hspace{4mm}0 \\ 0\hspace{4mm}4 \end{array} } \right)">  
 
 
 The means are zero, but the variances are not the same. This will give an elliptical Gaussian that can be plotted as follows:
@@ -673,9 +681,9 @@ The means are zero, but the variances are not the same. This will give an ellipt
 
 Consider another 2-dimensional Gaussian with:
 
-<img src="https://render.githubusercontent.com/render/math?math=\mathbf{\mu} = \left( {\begin{array}{cc} 0 \\ 0 \end{array} } \right)">  
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\mathbf{\mu} = \left( {\begin{array}{cc} 0 \\ 0 \end{array} } \right)">  
 
-<img src="https://render.githubusercontent.com/render/math?math=\mathbf{\Sigma} = \left( {\begin{array}{cc} 1\hspace{4mm}-1 \\ -1\hspace{4mm}4 \end{array} } \right)">  
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\mathbf{\Sigma} = \left( {\begin{array}{cc} 1\hspace{4mm}-1 \\ -1\hspace{4mm}4 \end{array} } \right)">  
 
 
 The means are zero, but the variances are not the same, and the off-diagonals are non-zero. This will give an elliptical Gaussian that can be plotted as follows:
@@ -688,19 +696,19 @@ It is useful to step through the links between the probability density function,
 
 More formally, as per Blum et al, given the sample points **x₁**, **x₂**, …, **x**<sub>*n*</sub> in *d* dimensions we want to find the spherical Gaussian that best fits these points. If *f* is the unknown Gaussian (with mean *µ* and variance *σ*² ) then the probability density for picking these points when sampling according to *f* is given by:
 
-<img src="https://render.githubusercontent.com/render/math?math=c\mathrm{exp}\left(-\frac{(\mathbf{x_1} - \mathbf{\mu})^2 %2B (\mathbf{x_2} - \mathbf{\mu})^2 %2B \ldots %2B (\mathbf{x_n} - \mathbf{\mu})^2}{2\sigma^2}\right)">  
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=c\mathrm{exp}\left(-\frac{(\mathbf{x_1} - \mathbf{\mu})^2 %2B (\mathbf{x_2} - \mathbf{\mu})^2 %2B \ldots %2B (\mathbf{x_n} - \mathbf{\mu})^2}{2\sigma^2}\right)">  
 
-*c* is a normalising constant, the reciprocal of <img src="https://render.githubusercontent.com/render/math?math=\left[\int e^-\frac{\mid\mathbf{x} - \mathbf{\mu}\mid^2}{2\sigma^2}dx\right]^n">  
-which is equivalent to <img src="https://render.githubusercontent.com/render/math?math=\left[\int e^-\frac{\mid\mathbf{x}\mid^2}{2\sigma^2}dx\right]^{-n}">  as origin can be *µ* when integrating over -∞ to ∞
-and that is equal to: <img src="https://render.githubusercontent.com/render/math?math=\frac{1}{\large (2\pi)^{\frac{\small n}{\small 2}}}">  
+*c* is a normalising constant, the reciprocal of <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\left[\int e^-\frac{\mid\mathbf{x} - \mathbf{\mu}\mid^2}{2\sigma^2}dx\right]^n">  
+which is equivalent to <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\left[\int e^-\frac{\mid\mathbf{x}\mid^2}{2\sigma^2}dx\right]^{-n}">  as origin can be *µ* when integrating over -∞ to ∞
+and that is equal to: <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\frac{1}{\large (2\pi)^{\frac{\small n}{\small 2}}}">  
 
 Now we are looking to find the *Maximum Likelihood Estimator* (MLE) of our unknown Gaussian *f*, in other words the *f* that maximises the above probability density.
 
 The lemma states that ( **x₁** - **µ** )² + ( **x₂** - **µ** )² + … + ( **x**<sub>*n*</sub> - **µ** )² is minimised when **µ** is the centroid of the points **x₁**, **x₂**, …, **x**<sub>*n*</sub> , in other words:
 
-<img src="https://render.githubusercontent.com/render/math?math=\mathbf{\mu} = \frac{1}{n}(\mathbf{x_1} %2B \mathbf{x_1} %2B \ldots %2B \mathbf{x_n})">  
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\mathbf{\mu} = \frac{1}{n}(\mathbf{x_1} %2B \mathbf{x_1} %2B \ldots %2B \mathbf{x}_n)">  
 
-To then calculate the MLE of *σ*² for *f*, set **µ** as true centroid and *σ* as standard deviation of the sample, and substitute <img src="https://render.githubusercontent.com/render/math?math=v = \frac{1}{2\sigma^2}"> and *a* = ( **x₁** - **µ** )² + ( **x₂** - **µ** )² + … + ( **x**<sub>*n*</sub> - **µ** )² into the formula for picking probability density. We can then go on to show that the maximum occurs when <img src="https://render.githubusercontent.com/render/math?math=\sigma = \frac{\sqrt{a}}{\sqrt{nd}}">  .
+To then calculate the MLE of *σ*² for *f*, set **µ** as true centroid and *σ* as standard deviation of the sample, and substitute <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=v = \frac{1}{2\sigma^2}"> and *a* = ( **x₁** - **µ** )² + ( **x₂** - **µ** )² + … + ( **x**<sub>*n*</sub> - **µ** )² into the formula for picking probability density. We can then go on to show that the maximum occurs when <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\sigma = \frac{\sqrt{a}}{\sqrt{nd}}">  .
 
 This produces the following lemma:
 
