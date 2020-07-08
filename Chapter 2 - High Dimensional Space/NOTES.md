@@ -46,7 +46,8 @@ See [https://en.wikipedia.org/wiki/Probability_density_function](https://en.wiki
 
 <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\sigma^2=\sum \frac{(X_i - X)^2}{N}">  
 
-Where <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\sigma^2"> = variance  
+Where:  
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\sigma^2"> = variance  
 
 <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=(X_i - X)^2"> = (Individual Value – Mean)²  
 
@@ -54,20 +55,20 @@ Where <img style="float: right;" src="https://render.githubusercontent.com/rende
 
 <img style="float: right;" src="https://render.githubusercontent.com/render/math?math={N}"> = Total number of data points in our dataset  
 
-Can also be expressed as: <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\sigma^2=\sum \frac{(x_i - \mu)^2}{N}">  
+This can also be expressed as: <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\sigma^2=\sum \frac{(x_i - \mu)^2}{N}">  
 
-For discrete variables it is different, but the above is relevant in the context of the Gaussian curve.
+This is relevant in the context of the Gaussian curve, however it is worth keeping in mind that the situation would be different in the case of discrete variables.
 
 [http://zerosnones.net/variance-limitation-properties-applications/](http://zerosnones.net/variance-limitation-properties-applications/)
 
-"*Unit variance* means that the standard deviation of a sample as well as the *variance* will tend towards 1 as the sample size tends towards infinity." This is typically referred to as the standard normal distribution.
+"*Unit variance* means that the standard deviation of a sample as well as the *variance* will tend towards 1 as the sample size tends towards infinity." This is typically referred to as the *standard normal distribution*.
 
 For a sample of a million random values:
 
 ```
 import numpy as np
 from matplotlib import pyplot as plt
-N = int(1e6) # 1e6 is a float, numpy wants int arguments
+N = 1000000
 xx = np.random.randn(N)
 hist_stuff = plt.hist(xx, bins=100)
 plt.show()
