@@ -179,9 +179,9 @@ It implies that 68.27%, 95.45% and 99.73% of the values lie within one, two and 
 
 Mathematically it can be expressed as follows:
 
-Pr( *µ* - 1σ ≤ *X* ≤ *µ* + 1σ ) ≈ 0.6827
-Pr( *µ* - 2σ ≤ *X* ≤ *µ* + 2σ ) ≈ 0.9545
-Pr( *µ* - 3σ ≤ *X* ≤ *µ* + 3σ ) ≈ 0.9973
+Pr( *µ* - 1σ ≤ *X* ≤ *µ* + 1σ ) ≈ 0.6827  
+Pr( *µ* - 2σ ≤ *X* ≤ *µ* + 2σ ) ≈ 0.9545  
+Pr( *µ* - 3σ ≤ *X* ≤ *µ* + 3σ ) ≈ 0.9973  
 
 The *three-sigma rule* states that even in the case of non-normally distributed variables, 88.8% of cases will still fall within the three sigma intervals (three standard deviations from the mean). This follows from *Chebyshev’s inequality*, which will be looked at later.
 
@@ -216,13 +216,13 @@ It also has a connection to the Central Limit Theorem in that the “expected va
 
 The simple version of the formula is for binomial events, which simply states that you multiply the probability with the number of times that the event occurs:
 
-*E*( *X* ) = Pr( *x* ) * *X*
+<p align="center"><img style="float: right;" src="https://render.githubusercontent.com/render/math?math=E(X) = P(x) X"></p>  
 
 [https://www.youtube.com/watch?v=lxYBCrrhLW0](https://www.youtube.com/watch?v=lxYBCrrhLW0)
 
 However, this is often too simple, so we need a way to represent multiple types of events. The formula in this case looks as follows:
 
-*E*( *X* ) = ∑*X* * Pr( *X* )
+<p align="center"><img style="float: right;" src="https://render.githubusercontent.com/render/math?math=E(X) = \Sigma{X} \cdot P(X)"></p>  
 
 [https://www.youtube.com/watch?v=_eIZKor-h48](https://www.youtube.com/watch?v=_eIZKor-h48)
 
@@ -246,11 +246,11 @@ There is an important distinction between the Weak and the Strong Law of Large N
 
 *Weak Law:*
 
-( lim *n*→∞) Pr( | *x̅* - *μ* | ≥ *ϵ* ) = 0
+<p align="center"><img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\lim _{n\to \infty }\,P\left(\mid{\bar{x}} - \mu \mid \ge \varepsilon \,\right)=0"></p>  
 
 *Strong Law:*
 
-Pr( lim *n*→∞ *x̅* = *E* ( *x* ) ) = 1
+<p align="center"><img style="float: right;" src="https://render.githubusercontent.com/render/math?math=P\left(\lim _{n\to \infty }\,{\bar{x}}=E(x) \right)=1"></p>  
 
 [https://terrytao.wordpress.com/2008/06/18/the-strong-law-of-large-numbers/](https://terrytao.wordpress.com/2008/06/18/the-strong-law-of-large-numbers/)
 
@@ -322,7 +322,10 @@ A PDF in fact *describes* a continuous random variable. I.e. if a random variabl
 
 The probability that X is any *particular* point is in fact 0 (the integral where *a* is equal to *b* is 0). A side effect of this is that the probability of a closed and open interval (one that does, and one that doesn’t include the endpoints) is identical.
 
-*Note:* it is easy to confuse Probability with the Probability Density Function, however they are not the same. Probability density functions are not probabilities, but if 𝑓(𝑥) is a probability density function, then 𝑃=ᵪ₀ ∫ᵡ¹𝑓(𝑥)𝑑𝑥 is a probability and thus ᵪ₀∫ᵡ¹𝑓(𝑥)𝑑𝑥≤1 for all 𝑥0,𝑥1 (𝑥0≤𝑥1).
+*Note:* it is easy to confuse Probability with the Probability Density Function, however they are not the same. Probability density functions are not probabilities, but if *f(x)* is a probability density function, then <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=P = \int_{\small x_{\tiny 0}}^{\small x_{\tiny 1}}f(x)dx">  is a probability and thus <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\int_{\small x_{\tiny 0}}^{\small x_{\tiny 1}}f(x)dx \le 1\,\,\text{for all}\,x_0, x_1 (x_0 \le x_1)">. 
+
+[https://math.stackexchange.com/questions/1720053/how-can-a-probability-density-function-pdf-be-greater-than-1](https://math.stackexchange.com/questions/1720053/how-can-a-probability-density-function-pdf-be-greater-than-1)
+
 
 The general form of the PDF for the normal distribution is:
 
