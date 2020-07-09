@@ -8,16 +8,16 @@
 
 Math notation:</br>
 
-<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=X \sim N( \mu, \sigma )"></a>  
+<p align="center"><img style="float: right;" src="https://render.githubusercontent.com/render/math?math=X \sim N( \mu, \sigma )"></p>  
 
-<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=X \sim N( 0, 1 )">
+<p align="center"><img style="float: right;" src="https://render.githubusercontent.com/render/math?math=X \sim N( 0, 1 )"></p>
 
 
-CS notation: x = randn( )
+CS notation: <p align="center">x = randn( )</p>
 
 Function: 
 
-<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=f(x)={\frac {1}{\sqrt {2\pi }}}%20%20e^{-\frac{x^{2}}{2}}">
+<p align="center"><img style="float: right;" src="https://render.githubusercontent.com/render/math?math=f(x)={\frac {1}{\sqrt {2\pi }}}%20%20e^{-\frac{x^{2}}{2}}"></p>
 
 a.k.a. Probability Density Function (PDF) for Standard Normal Distribution
 
@@ -44,7 +44,7 @@ See [https://en.wikipedia.org/wiki/Probability_density_function](https://en.wiki
 
 *Variance* (for continuous variables) can be expressed as:
 
-<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\sigma^2=\sum \frac{(X_i - X)^2}{N}">  
+<p align="center"><img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\sigma^2=\sum \frac{(X_i - X)^2}{N}"></p>  
 
 Where:  
 <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\sigma^2"> = variance  
@@ -52,7 +52,8 @@ Where:
 <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\sum">   = Summation of function associated with it  
 <img style="float: right;" src="https://render.githubusercontent.com/render/math?math={N}"> = Total number of data points in our dataset  
 
-This can also be expressed as: <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\sigma^2=\sum \frac{(x_i - \mu)^2}{N}">  
+This can also be expressed as: 
+<p align="center"><img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\sigma^2=\sum \frac{(x_i - \mu)^2}{N}"></p>  
 
 This is relevant in the context of the Gaussian curve, however it is worth keeping in mind that the situation would be different in the case of discrete variables.
 
