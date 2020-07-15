@@ -232,7 +232,7 @@ There is also the continuous case, and the general case. The differences between
 
 ### Question: What is the Law of Large Numbers?
 
-Informally, assuming we have a fair way of sampling, it simply means that the probability of reaching our expected value approaches 1 as the number of samples increases to infinity. A different way of putting is that the mean of the sample will approach the true mean of the population as *n* → ∞.
+Informally, assuming we have a fair way of sampling, it simply means that the probability of reaching our expected value approaches 1 as the number of samples increases to infinity. A different way of putting is that the mean of the sample will approach the true mean of the population as *n* ⟶ ∞.
 
 A simple example is the tossing of a coin. As the number of coin tosses *n* increases, the likelihood of us having tossed 50% heads and 50% tails tends towards 1. 
 
@@ -576,7 +576,83 @@ The *d*-dimensional spherical Gaussian with zero mean and variance *σ*² has th
 
 Although density is maximum at origin, there is little volume. The radius needs to be increased to around √d before there is significant and hence probability mass. Beyond √d the probability density starts to drop off at a much faster rate than the volume increases.
 
-### Question: What is the connection between random projection and the Johnson-Lindenstrauss lemma?
+### What is a Random Projection?
+
+Imagine we need to solve the following applied problem:
+
+We are given a database with n points in <i>R<sup>d</sup></i>, where both *n* and *d* are large. The database is likely to be preprocessed and stored in an efficient data structure. The purpose of the database is to answer queries where a query point is provided, and the nearest or approximately nearest point to it has to be found. The number of queries will be large, so the time to answer a query should be small, ideally a simple function of log *n* and log *d*. Preprocessing time could take longer, for example a polynomial function of *n* and *d*.
+
+For this type of problem dimensionality reduction, where we project the database points in *d*-dimensions to a *k*-dimensional space where *k* ≪ *d*, can be very helpful as long as relative distances between points are approximately preserved.
+
+For the projection *f* : <b>R</b><sup><i>d</i></sup> ⟶ <b>R</b><sup><i>k</i></sup> pick *k* Gaussian vectors <b>u<sub>1</sub>, u<sub>2</sub>, ..., u<sub>k</sub></b> in <b>R</b><sup><i>d</i></sup>. For any vector **v**, define the projection *f*(**v**) as:
+
+<p style="text-align: center;"><i>f</i>(<b>v</b>) = ( <b>u<sub>1</sub></b> · <b>v</b>, <b>u<sub>2</sub></b> · <b>v</b>, ..., <b>u<sub>k</sub></b> · <b>v</b> )</p>
+
+It can be shown that, with high probability, <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\mid{f}(\mathbf{v})\mid \approx \sqrt{k}\mid\mathbf{v}\mid">. For any two vectors <b>v<sub>1</sub></b> and <b>v<sub>2</sub></b>, *f*( <b>v<sub>1</sub></b> - <b>v<sub>2</sub></b> ) = *f*( <b>v<sub>1</sub></b> ) - *f*( <b>v<sub>2</sub></b> ).
+
+So to estimate the distance |<b>v<sub>1</sub></b> - <b>v<sub>2</sub></b>| in <b>R</b><sup><i>d</i></sup> it suffices to calculate *f*( <b>v<sub>1</sub></b> ) - *f*( <b>v<sub>2</sub></b> ) <i>in *k*-dimensional space</i> and divide by <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\sqrt{k}"> (which is known).
+
+Note that the distances increase when projected into a lower dimensional space, because the vectors <b>u<sub>i</sub></b> are not unit length. Neither are they orthogonal, which would have forfeited statistical independence.
+
+**Random Projection Theorem:**
+
+<i>Let </i><b>v</b><i> be a fixed vector in </i><b>R</b><sup><i>d</i></sup><i> and f</i>(<b>v</b>) = ( <b>u<sub>1</sub></b> · <b>v</b>, <b>u<sub>2</sub></b> · <b>v</b>, ..., <b>u<sub>k</sub></b> · <b>v</b> ). <i>There exists a constant c ></i> 0 <i>such that for ε ∈</i> (0, 1), 
+
+<p align="center"><img style="float: right;" src="https://render.githubusercontent.com/render/math?math=P\big(\big|\mid{f}(\mathbf{v})\mid - \sqrt{k}\mid\mathbf{v}\mid\big| \ge \epsilon\sqrt{k}\mid\mathbf{v}\mid\big) \le 3e^{-ck\epsilon^{2}}"></p>
+
+<i>where the probability is taken over the random draws of vectors <b>u<sub>i</sub></b> used to construct f.</i>
+
+The theorem can be proven by first scaling the inner equality to show |**v**| = 1, then deriving *Var*(<b>u<sub>i</sub></b> · <b>v</b>) = 1 from  the fact the random variable <b>u<sub>i</sub></b> · <b>v</b> has Gaussian density. Then, applying the Gaussian Annulus Theorem with *k* instead of *d* using the independent Gaussian random variables <b>u<sub>1</sub></b> · <b>v</b>, <b>u<sub>2</sub></b> · <b>v</b>, ..., <b>u<sub>i</sub></b> · <b>k</b>, the theorem follows.
+
+### What is the Johnson-Lindenstrauss Lemma?
+
+It is typical for the running time of an algorithm to depend exponentially on the number of dimensions, *d*. The Johnson-Lindenstrauss lemma reduces the dimension *d* to log(*d*), and the algorithm can then run in time polynomial in *d*.
+
+The Johnson-Lindenstrauss lemma also gives guarantees about the pointwise distance between all the points in the projection from *d* to log(*d*) (useful in for example k-nearest neighbour algorithm), preserving them approximately.
+
+**Johnson-Lindestrauss Lemma:**
+
+<i>For any </i>0<i> < ε < </i>1<i> and any integer n, let <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=k \ge \frac{3}{c\epsilon^2}\mathrm{ln}\,n">  with *c* a constant defined as part of the probability mass upper bound in the Gaussian Annulus Theorem: <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=3e^{-c\beta^2}"></i>. <i>For any set of n points in R<sup>d</sup>, the random projection f : R<sup>d</sup> ⟶ R<sup>k</sup> defined above has the property that for all pairs of points </i>v<sub>i</sub><i> and </i>v<sub>j</sub>, with probability at least <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=1 - \frac{3}{2n}"></i>
+
+Proposition 1 (the JL lemma): For some 𝑘≥𝑂(log𝑚/𝜀2) (where 𝜀 is our chosen error tolerance), with high probability, map 𝑓:ℝ𝑑→ℝ𝑘 does not change the pairwise distance between any two points more than a factor of (1±𝜀), after scaling by 𝑛/𝑘‾‾‾√).
+
+**Johnson-Lindenstrauss Theorem, version by Achlioptas:**  
+
+<i>Given x<sub>1</sub>, ..., x<sub>n</sub> ∈ R<sup>d</sup>, let X be the d x n matrix with the vectors x<sub>i</sub> as columns  
+Let ε, β > 0 and  <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=k = \mathrm{log}(n) \cdot \frac{4 %2B 2\beta}{\frac{\epsilon^{\small  2}}{2} - \frac{\epsilon^{\small 3}}{3}}">  
+Let R be a k x d matrix with independent entries ±1 as described above  
+Construct the projected data points <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=Y := \frac{{R}\cdot{X}\cdot{1}}{\sqrt{k}}">  
+Then, with probability at least 1 - n<sup>-β</sup>, property (*), i.e. distance, from the Johnson-Lindenstrauss theorem holds for all pairs of points (x<sup>i</sup>, x<sup>j</sup>)  </i>
+
+The gist of the proof:
+
+"the JL lemma follows from the fact that the squared length of a vector is sharply concentrated around its mean when projected onto a random 𝑘-dimensional subspace"
+
+https://www.quora.com/What-is-a-simplified-explanation-and-proof-of-the-Johnson-Lindenstrauss-lemma
+
+A different way of stating it:
+
+"the johnson-lindenstrauss lemma is true because the square of the dot product between a random vector and any vector is, in expectation, equal to the norm of that vector. You can then improve the estimate by using more random vectors until the variance is smaller than any fixed threshold, with high probability."
+
+https://www.quora.com/What-is-a-simplified-explanation-and-proof-of-the-Johnson-Lindenstrauss-lemma
+
+More formally:
+
+By applying the Random Projection Theorem we can say that for any fixed <b>v<sub>i</sub></b> and <b>v<sub>j</sub></b> the probability that |*f*(<b>v<sub>i</sub></b> - <b>v<sub>j</sub></b>)| is outside the range
+
+<p align="center"><img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\big[(1 - \epsilon)\sqrt{k}\mid\mathbf{v_i} - \mathbf{v_j}\,,(1 %2B \epsilon)\sqrt{k}\mid\mathbf{v_i} - \mathbf{v_j}\mid\big]"></p>
+
+is at most <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=3e^{-ck\epsilon^2} \le \frac{3}{n^{\small 3}}\,\,\mathrm{for}\,k \ge \frac{3\,\mathrm{ln}\,n}{c\epsilon^2}">. Since there are <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=(^n_2) < \frac{n^2}{2}"> pairs of points, by the union bound, the probability that any pair has a large distortion is less than <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\frac{3}{2n}">. (Blum et al)
+
+Note that this is the stronger conclusion of the theorem and ensures that it holds for all <b>v<sub>i</sub></b> and <b>v<sub>j</sub></b> (not just most of them). For this dimension reduction the dominant term is typically 1/*ε*<sup>2</sup>.
+
+### Question: What is the connection between Random Projection and the Johnson-Lindenstrauss lemma?
+
+The random projection theorem says that projecting from dimensions *d* to *k*, the probability that the length of the projection of a single vector differs significantly from its expected value is exponentially small.  
+
+More specifically, by a union bound, the probability that any of *O*(*n*<sup>2</sup>) pairwise differences |<b>v<sub>i</sub></b> - <b>v<sub>j</sub></b>| among *n* vectors <b>v<sub>1</sub></b>, ... ,<b>v<sub>2</sub></b> differs slightly from their expected values is small, provided <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=k \ge \frac{3}{c\epsilon^2}">.  
+
+Thus the random projection, with high probability preserves all relative pairwise distances between points in a set of *n* points. This leads directly to the Johnson-Lindenstrauss lemma. (Blum et al)
 
 ### Question: How do you identify which Gaussian a point belongs to when there is more than one distribution?
  
