@@ -610,11 +610,13 @@ It is typical for the running time of an algorithm to depend exponentially on th
 
 The Johnson-Lindenstrauss lemma also gives guarantees about the pointwise distance between all the points in the projection from *d* to log(*d*) (useful in for example k-nearest neighbour algorithm), preserving them approximately.
 
+"Proposition (the JL lemma): For some <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=k \ge \frac{\mathrm{log}\,m}{\epsilon^{\small 2}}"> (where <span style="font-size:1.2em;">𝜀</span> is our chosen error tolerance, and <span style="font-size:1.2em;">𝑚</span> is the number of points), with high probability, map <span style="font-size:1.2em;">𝑓 : ℝ<sup>𝑑</sup> → ℝ<sup>𝑘</sup></span> does not change the pairwise distance between any two points more than a factor of (1 ± <span style="font-size:1.2em;">𝜀</span>), after scaling by <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\sqrt\frac{n}{k}">."
+
+https://www.quora.com/What-is-a-simplified-explanation-and-proof-of-the-Johnson-Lindenstrauss-lemma
+
 **Johnson-Lindestrauss Lemma:**
 
 <i>For any </i>0<i> < ε < </i>1<i> and any integer n, let <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=k \ge \frac{3}{c\epsilon^2}\mathrm{ln}\,n">  with *c* a constant defined as part of the probability mass upper bound in the Gaussian Annulus Theorem: <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=3e^{-c\beta^2}"></i>. <i>For any set of n points in R<sup>d</sup>, the random projection f : R<sup>d</sup> ⟶ R<sup>k</sup> defined above has the property that for all pairs of points </i>v<sub>i</sub><i> and </i>v<sub>j</sub>, with probability at least <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=1 - \frac{3}{2n}"></i>
-
-Proposition 1 (the JL lemma): For some 𝑘≥𝑂(log𝑚/𝜀2) (where 𝜀 is our chosen error tolerance), with high probability, map 𝑓:ℝ𝑑→ℝ𝑘 does not change the pairwise distance between any two points more than a factor of (1±𝜀), after scaling by 𝑛/𝑘‾‾‾√).
 
 **Johnson-Lindenstrauss Theorem, version by Achlioptas:**  
 
@@ -623,6 +625,8 @@ Let ε, β > 0 and  <img style="float: right;" src="https://render.githubusercon
 Let R be a k x d matrix with independent entries ±1 as described above  
 Construct the projected data points <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=Y := \frac{{R}\cdot{X}\cdot{1}}{\sqrt{k}}">  
 Then, with probability at least 1 - n<sup>-β</sup>, property (*), i.e. distance, from the Johnson-Lindenstrauss theorem holds for all pairs of points (x<sup>i</sup>, x<sup>j</sup>)  </i>
+
+https://www.youtube.com/watch?v=j9qbuGSjzeE
 
 The gist of the proof:
 
@@ -640,11 +644,11 @@ More formally:
 
 By applying the Random Projection Theorem we can say that for any fixed <b>v<sub>i</sub></b> and <b>v<sub>j</sub></b> the probability that |*f*(<b>v<sub>i</sub></b> - <b>v<sub>j</sub></b>)| is outside the range
 
-<p align="center"><img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\big[(1 - \epsilon)\sqrt{k}\mid\mathbf{v_i} - \mathbf{v_j}\,,(1 %2B \epsilon)\sqrt{k}\mid\mathbf{v_i} - \mathbf{v_j}\mid\big]"></p>
+<p align="center"><img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\big[(1 - \epsilon)\sqrt{k}\mid\mathbf{v_i} - \mathbf{v_j}\mid\,,(1 %2B \epsilon)\sqrt{k}\mid\mathbf{v_i} - \mathbf{v_j}\mid\big]"></p>
 
 is at most <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=3e^{-ck\epsilon^2} \le \frac{3}{n^{\small 3}}\,\,\mathrm{for}\,k \ge \frac{3\,\mathrm{ln}\,n}{c\epsilon^2}">. Since there are <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=(^n_2) < \frac{n^2}{2}"> pairs of points, by the union bound, the probability that any pair has a large distortion is less than <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\frac{3}{2n}">. (Blum et al)
 
-Note that this is the stronger conclusion of the theorem and ensures that it holds for all <b>v<sub>i</sub></b> and <b>v<sub>j</sub></b> (not just most of them). For this dimension reduction the dominant term is typically 1/*ε*<sup>2</sup>.
+Note that this is the stronger conclusion of the theorem and ensures that it holds for all <b>v<sub>i</sub></b> and <b>v<sub>j</sub></b> (not just most of them). This can be important in an algorithm like nearest neighbours. For this dimension reduction the dominant term is typically 1/*ε*<sup>2</sup>.
 
 ### Question: What is the connection between Random Projection and the Johnson-Lindenstrauss lemma?
 
