@@ -32,7 +32,7 @@ Given n labelled examples <b>x<sub>1</sub></b>, <b>x<sub>2</sub></b>, ... ,<b>x<
 where each example has label +1 or -1,
 our task is to find a *d*-dimensional vector **w**, if one exists, with a threshold *t* where:
 
-<p style="text-align: center;">
+<p align="center">
 <b>w · x<sub>i</sub></b> > <i>t</i> for each <b>x<sub>i</sub></b> labelled +1  
 </br>
 <b>w · x<sub>i</sub></b> < <i>t</i> for each <b>x<sub>i</sub></b> labelled -1
@@ -47,7 +47,7 @@ Modify by adding coordinates (allows separator to include the origin):
 </br>
 <b>ŵ</b> = (<b>w</b>, <i>-t</i>)
 
-<p style="text-align: center;">
+<p align="center">
 (<b>ŵ · x̂<sub>i</sub></b>)<i>l<sub>i</sub></i> > 0 &nbsp&nbsp&nbsp 1 ≤ <i>i</i> ≤ <i>n</i>
 </p>
 
@@ -82,13 +82,13 @@ Note: Given w looks like a row vector, Blum et al's notation appears a little st
 
 Suppose there is a <b>w</b><sup>\*</sup> satisfying (<b>w</b><sup>\*</sup> · <b>x</b><sub>i</sub>)<i>l<sub>i</sub></i> ≥ 1 for all *i*. Each update (<b>w</b><sup>\*</sup> · <b>x</b><sub>i</sub>)<i>l<sub>i</sub></i> increases <b>w</b><sup><i>T</i></sup><b>w</b><sup>\*</sup> by at least 1, so that:
 
-<p style="text-align: center;">
+<p align="center">
 (<b>w</b> + <b>x<sub>i</sub></b><i>l<sub>i</sub></i>)<sup><i>T</i></sup><b>w</b><sup>*</sup> = <b>w<i></b><sup>T</sup></i><b>w</b><sup>*</sup> + <b>x<sub>i</sub><i></b><sup>T</sup></i><i>l<sub>i</sub></i><b>w</b><sup>*</sup> ≥ <b>w<i></b><sup>T</sup><b></i>w</b><sup>*</sup> + 1
 </p>
 
 Each update increases |<b>w</b>|<sup>2</sup> by at most <i>r</i><sup>2</sup> (where |<b>w</b>|<sup>2</sup> = <b>w</b> · <b>w</b>, i.e. <b>w</b> matrix multiplied by itself to give a scalar):
 
-<p style="text-align: center;">
+<p align="center">
 (<b>w</b> + <b>x<sub>i</sub></b><i>l<sub>i</sub></i>)<sup><i>T</i></sup>(<b>w</b> + <b>x<sub>i</sub></b><i>l<sub>i</sub></i>) = |<b>w</b>|<sup>2</sup> + 2<b>x<sub>i</sub></b><i></b><sup>T</sup></i><i>l<sub>i</sub></i><b>w</b> + |<b>x<sub>i</sub></b><i>l<sub>i</sub></i>|<sup>2</sup> ≤ |<b>w</b>|<sup>2</sup> + |<b>x<sub>i</sub></b>|<sup>2</sup> ≤ |<b>w</b>|<sup>2</sup> + <i>r</i><sup>2</sup>
 </p>
 
