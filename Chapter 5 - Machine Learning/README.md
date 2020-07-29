@@ -78,7 +78,7 @@ The multiplication by <i>l<sub>i</sub></i> is a simple device to force the overa
 
 The update only happens when the predicted and true labels are not aligned, i.e. one is positive and the other negative. In that case <b>x<sub>i</sub></b><i><sup>T</sup></i><i>l<sub>i</sub></i><b>w</b> ≤ 0.
 
-Note: Given w looks like a row vector, Blum et al's notation appears a little strange. The assumption is that both <b>w</b><sup><i>T</i></sup><b>w</b><sup>\*</sup> and |<b>w</b>|<sup>2</sup> are scalar quantities. |<b>w</b>|<sup>2</sup> is the square of the vector norm of **w**, which is the same as the dot product of **w** with itself. As for <b>w</b><sup><i>T</i></sup><b>w</b><sup>\*</sup>, it appears to be the equivalent of |<b>w</b>||<b>w</b><sup>*</sup>|, which is the product of two vector norms, and hence two scalars.
+Note: Given **w** looks like a row vector, Blum et al's notation appears a little strange. The assumption is that both <b>w</b><sup><i>T</i></sup><b>w</b><sup>\*</sup> and |<b>w</b>|<sup>2</sup> are scalar quantities. |<b>w</b>|<sup>2</sup> is the square of the vector norm of **w**, which is the same as the dot product of **w** with itself. As for <b>w</b><sup><i>T</i></sup><b>w</b><sup>\*</sup>, it appears to be the equivalent of |<b>w</b>||<b>w</b><sup>*</sup>|, which is the product of two vector norms, and hence two scalars.
 
 Suppose there is a <b>w</b><sup>\*</sup> satisfying (<b>w</b><sup>\*</sup> · <b>x</b><sub>i</sub>)<i>l<sub>i</sub></i> ≥ 1 for all *i*. Each update (<b>w</b><sup>\*</sup> · <b>x</b><sub>i</sub>)<i>l<sub>i</sub></i> increases <b>w</b><sup><i>T</i></sup><b>w</b><sup>\*</sup> by at least 1, so that:
 
