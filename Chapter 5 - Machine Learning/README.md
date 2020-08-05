@@ -22,7 +22,7 @@ In order to formulate this mathematically, we need to be precise about the meani
 - simple
 - representative
 
-### What is a simple linear separator algorithm?
+### Question: What is a simple linear separator algorithm?
 
 The linear separator is a simple rule in *d*-dimensional space. "Does a weighted sum of feature values exceed a threshold?"
 
@@ -59,7 +59,7 @@ From here on we will simply assume:
 </br>
 <b>w</b> = <b>ŵ</b>
 
-### How does the Perceptron algorithm work?
+### Question: How does the Perceptron algorithm work?
 
 **w** ⟵ 0  
 **w** ⟵ **w** + **x<sub>i</sub><i>l<sub>i</sub></i>**     while **x<sub>i</sub><i>l<sub>i</sub></i>·w** ≤ 0 for a valid **x<sub>i</sub>**
@@ -96,3 +96,75 @@ Given <i>m</i> updates, <b>w</b><i><sup>T</sup></i><b>w</b><sup>\*</sup> ≥ *m*
 Equivalently, |<b>w</b>||<b>w</b><sup>*</sup>| ≥ <i>m</i> and |<b>w</b>| ≤ <i>r√m</i>.
 
 With this information it can be shown that *m* ≤ <i>r<sup>2</sup></i>|<b>w</b><sup>\*</sup>|<sup>2</sup>
+
+### Question: What is a positive semi-definite matrix?
+
+Given:  
+*M*: a symmetric *n* × *n* matrix  
+*z*: a non-zero column vector of *n* real numbers
+
+If *z*<sup>T</sup>*Mz* is strictly positive or zero (i.e. non-negative) it is called a positive semi-definite matrix.
+
+Thus:
+
+*M* positive semi-definite ⟷ *z*<sup>T</sup>*Mz* ≥ 0 for all *z* ∈ R<sup>n</sup>
+
+Importantly, it implies that "the output always has a positive inner product with the input, as often observed in physical processes" (Wikipedia).
+
+### Question: What about non-linearly separable data?
+
+Linearly separable data can take advantage of the Perceptron Algorithm to find a solution. In the case of non-linearly separable data, a map to a higher dimensional space where it is linearly separable means that the Perceptron Algorithm can be applied to the mapped space instead.
+
+A common method for doing this is the kernel method, which uses kernel functions. Kernels are typically real-valued functions. Kernel methods can operate in a high dimensional space.
+
+**Kernel Lemma:**
+
+<i>A matrix K is a kernel matrix, i.e., there is a function 𝜑 such that k<sub>ij</sub> = 𝜑</i>(<b>x<sub>i</sub></b>)<i><sup>T</sup>𝜑</i>(<b>x<sub>j</sub></b>)<i>, if and only if K is positive semi-definite</i>.
+
+*K* can be expressed as *K = BB<sup>T</sup>* because it is positive semi-definite. If we define 𝜑</i>(<b>x<sub>i</sub></b>)<i><sup>T</sup></i> to be the *i<sup>th* row of *B*, then <i>k<sub>ij</sub> = 𝜑</i>(<b>x<sub>i</sub></b>)<i><sup>T</sup>𝜑</i>(<b>x<sub>j</sub></b>). Conversely, suppose there is an embedding 𝜑 such that <i>k<sub>ij</sub> = 𝜑</i>(<b>x<sub>i</sub></b>)<i><sup>T</sup>𝜑</i>(<b>x<sub>j</sub></b>), then by using 𝜑(<b>x<sub>i</sub></b>)<i><sup>T</sup></i> for the rows of the matrix *B*, matrix *K* will be *K = BB<sup>T</sup>*. Thus *K* is positive semi-definite.
+
+As there are a number of legal kernel functions, one of the easiest ways of creating a new kernel function is to combine them.
+
+**Kernel combination theorem:**
+
+<i>Suppose k</i><sub>1</sub><i> and k</i><sub>2</sub><i> are kernel functions. Then
+
+1. For any constant c </i>≥ 0<i>, ck</i><sub>1</sub><i> is a legal kernel. In fact, for any scalar function f, the function k</i><sub>3</sub>(**x, y**) = *f*(**x**)*f*(**y**)<i>k</i><sub>1</sub>(**x, y**)<i> is a legal kernel.
+2. The sum k</i><sub>1</sub><i> + k</i><sub>2</sub><i> is a legal kernel
+3. The product k</i><sub>1</sub><i>k</i><sub>2</sub><i> is a legal kernel</i>
+
+By this token *k*(**x, y**) = (1 + **x**<i><sup>T</sup></i>**y**)<sup>k</sup> is legal because *k*<sub>1</sub>(**x, y**) = 1 is a legal kernel, and so is *k*<sub>2</sub>(**x, y**) = **x**<i><sup>T</sup></i>**y**. Add them together and multiply the sum by itself *k* times.
+
+Examples of kernels:
+
+Linear kernel: *k*(**x, y**) = **x**<i><sup>T</sup></i>**y**,&nbsp;&nbsp;&nbsp;&nbsp;**x, y** ∈ R<sup>d</sup>  
+Polynomial kernel: *k*(**x, y**) = (**x**<i><sup>T</sup></i>**y** + *r*)<sup>n</sup>,&nbsp;&nbsp;&nbsp;&nbsp;**x, y** ∈ R<sup>d</sup>,&nbsp;&nbsp;*r* ≥ 0, *n* ≥ 1  
+Gaussian kernel: *k*(**x, y**) = *e*<sup>-<i>c</i>|**x** - **y**|<sup>2</sup></sup>,&nbsp;&nbsp;&nbsp;&nbsp;**x, y** ∈ R<sup>d</sup>    
+
+### Question: How does an algorithm generalise to new data?
+
+Two conditions apply. Firstly, both the training data and the new data should be drawn from the same probability distribution. Secondly, the rule (eg. classification rule) should be simple.
+
+**Formally**:
+
+*X*: The instance space  
+*D*: Probability distribution over *X*  
+*S*: training set points drawn independently at random from *D*  
+
+*Objective:* predict well on new points also drawn from *D*  
+
+*c*<sup>\*</sup>: target concept - subset of *X* corresponding to the positive class for binary classification concept  
+*h* : hypothesis  
+
+*Objective:* *h* ⊆ *X* as close as possible to *c*<sup>\*</sup> (low true error)  
+
+*err<sub>D</sub>(h)*: the *true error* of *h* - *err<sub>D</sub>(h)* = Prob(*h*∆*c*<sup>\*</sup>)  
+*err<sub>S</sub>(h)*: the *training error* of *h* - *err<sub>S</sub>(h)* = |*S*∩(*h*Δ*c*<sup>\*</sup>)|/|S|  
+*overfitting*: low training error yet high true error  
+*H*: a collection of subsets (hypotheses or concepts) over *X* called the hypothesis class
+
+For example, if *X* = R, then the class of *intervals* over *X* is the collection {[*a*, *b*]|a ≤ b}. The class of *linear separators* over R<i><sup>d</sup></i> is the collection {{**x** ∈ R<i><sup>d</sup></i>|**w**·**x** ≥ *t*}|**w** ∈ R<i><sup>d</sup></i>, *t* ∈ R}} ; i.e. the collection of all sets in R<i><sup>d</sup></i> that are linearly separable from their complement.
+
+*Objective:* to find a hypothesis in H that corresponds highly with *c*<sup>\*</sup> over S, while the *training error* is close to *true error*  
+
+To ensure the *training error* for all *h* ∈ H is close to the *true error*, the argument is that *S* should be large enough with respect to some property  of H.  
