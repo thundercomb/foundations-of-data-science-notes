@@ -168,3 +168,48 @@ For example, if *X* = R, then the class of *intervals* over *X* is the collectio
 *Objective:* to find a hypothesis in H that corresponds highly with *c*<sup>\*</sup> over S, while the *training error* is close to *true error*  
 
 To ensure the *training error* for all *h* ∈ H is close to the *true error*, the argument is that *S* should be large enough with respect to some property  of H.  
+
+### Question: What generalisation guarantees do we have?
+
+We have a hypothesis class H and many possible *h*/ We want to select the one where the generalisation error (the *true error*) is low.
+
+The book offers two generalisation guarantees that help guard against overfitting. 
+
+In the first, the case is addressed where a hypothesis exists where the training error is zero. In the second, the case is addressed where a hypothesis has training error greater than zero.
+
+### Question: What is the PAC Learning Guarantee?
+
+The PAC learning guarantee looks at the case where the training error for a hypothesis is zero.
+
+Given a situation where ϵ is greater than zero, and the training set is large compared to <img style="float: right;" src="https://render.githubusercontent.com/render/math?math=\frac{1}{\epsilon}\textrm{ln}(\mid{\textrm{H}}\mid)">, it is unlikely that any hypothesis *h* in H that has true error greater than ϵ, will have zero training error; i.e. if *h* agrees with the relevant target concept on training data, the true error will be low as well.
+
+**PAC Learning Theorem:**
+
+<i>Let H be an hypothesis class and let ϵ > 0, ẟ > 0. If a training set S of size
+
+<p align="center">
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=n \ge \frac{1}{\epsilon}\left(\textrm{ln}\mid\textrm{H}\mid %2B\,\textrm{ln}(\frac{1}{\delta})\right)">
+</p>
+
+is drawn from distribution D, then with probability greater than or equal to 1 - ẟ every h in H with true error err<sub>D</sub>(h) ≥ ϵ has training error *err<sub>D</sub>(h)* ≥ 0. Equivalently, with probability greater than or equal to 1 - ẟ, every h ∈ H with training error zero has true error less than ϵ.</i>  
+
+Another way of stating this is that, assuming the same distribution *D*, then with probability at least 1 − δ, a hypothesis *h* ∈ H may be found with a true error less than or equal to ϵ.
+
+<i>h<sub>1</sub></i> to <i>h<sub>m</sub></i>: hypotheses in H with error greater than or equal to ϵ (undesirable outputs)  
+*S*: sample of size *n*
+<i>A<sub>i</sub></i>: the event that <i>h<sub>i</sub></i> has *err<sub>S</sub>(h)* = 0
+For every <i>h<sub>i</sub></i>, *err<sub>D</sub>(h)* ≥ ϵ  
+Thus:  
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Prob(<i>A<sub>i</sub></i>) ≤ (1 - ϵ)<sup>n</sup>
+
+In other words, the probability that the hypothesis will retain its validity throughout a sample *S* of size *n*, is (1 - ϵ)<i><sup>n</sup></i>
+
+Given:  
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (1 - ϵ) ≤ *e*<sup>-ϵ</sup>  
+
+Then:  
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Prob(<i>A<sub>i</sub></i>) ≤ |H|*e*<sup>-ϵ<i>n</i></sup>  
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ≤ |H|*e*<sup>ln|H|-ln(1/ẟ)</sup>  
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ≤ ẟ  
+
+This guarantee is often called the Probability Approximately Correct (PAC) learning guarantee. It addresses the case where a hypothesis has zero training error. But what guarantees do we have if it doesn't.
