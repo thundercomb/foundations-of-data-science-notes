@@ -209,7 +209,103 @@ Given:
 
 Then:  
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Prob(<i>A<sub>i</sub></i>) ≤ |H|*e*<sup>-ϵ<i>n</i></sup>  
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ≤ |H|*e*<sup>ln|H|-ln(1/ẟ)</sup>  
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ≤ |H|*e*<sup>-ln|H|-ln(1/ẟ)</sup>  
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ≤ ẟ  
 
-This guarantee is often called the Probability Approximately Correct (PAC) learning guarantee. It addresses the case where a hypothesis has zero training error. But what guarantees do we have if it doesn't.
+This guarantee is often called the Probability Approximately Correct (PAC) learning guarantee. It addresses the case where a hypothesis has zero training error. It requires |H| to be finite.
+
+### Question: What is the Hoeffding bound?
+
+The Hoeffding bound is a variation on and generalisation of the Chernoff bound. It provides an upper bound on the probability that the sum of independent Bernouilli variables deviate from its expected value by more than a certain amount.
+
+**Hoeffding bounds theorem:**
+
+<i>Let x<sub>1</sub>, x<sub>2</sub>, ... ,x<sub>n</sub> be independent {0,1}-valued random variables with Prob</i>(<i>x<sub>i</sub> = </i>1)<i> = p. Let s = ∑<sub>i</sub>x<sub>i</sub> (equivalently, flip n coins of bias p and let s be the total number of heads). For any </i>0 ≤ ⍺ ≤ 1,<i>
+<p align="center">
+Prob</i>(<i>s/n > p </i>+ ⍺) ≤ <i>e</i><sup>-2<i>n⍺</i><sup>2</sup></sup></br>  
+<i>Prob</i>(<i>s/n < p </i>- ⍺) ≤ <i>e</i><sup>-2<i>n⍺</i><sup>2</sup></sup>
+</p>
+
+It helps us with the problem of proving that for a training error above zero, the true error has some upper bound. I.e., for a sufficiently large training set *S*, every *h* in H with high probability has a training error within ±ϵ of the true error. This is also known as *uniform convergence*.
+
+### Question: What is the uniform convergence guarantee?
+
+Rather than mere pointwise convergence, uniform convergence suppose a sequence of functions that converge uniformly to a limiting function. Given an arbitrarily small number ϵ, each of the sequence of functions differ, at every point, from the limiting function by no more than ϵ.
+
+**Uniform convergence PAC learning analog:**
+
+<i>Let H be a hypothesis class and let ϵ and δ be greater than zero, If a training set S of size
+<p align="center">
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=n \ge \frac{1}{2\epsilon^2}\left(\textrm{ln}\mid\textrm{H}\mid %2B\,\textrm{ln}(\frac{2}{\delta})\right)">
+</p>
+is drawn from distribution D, then with probability greater than or equal to 1 - δ, every h in H satisfies |err<sub>S</sub>(h) - err<sub>D</sub>(h)| ≤ ϵ</i>
+
+The uniform convergence theorem justifies training even if the training error isn't zero. As long as the training set S is sufficiently large, then a strong evaluation on S will very probably mean a strong evaluation on D.
+
+The proof starts with an indicator Bernoulli random variable *x<sub>j</sub>* that indicates *h* committing an error on the *jth* example in *S*. The probability of this indicator being true (= 1) is the true error of h. The fraction of indicator random variables indicating an error on the *jth* example is the training error.
+
+The two Hoeffding bounds guarantee that Prob(*A<sub>h</sub>*) ≤ 2*e*<sup>-2nϵ<sup>2</sup></sup>, where *A<sub>h</sub>* is the event that the difference between the true error and training error is less that or equal to ϵ. What is the probability of the event *A<sub>i</sub>* that there is an *h* ∈ H where the difference is greater than ϵ? By applying the union bound to the events *A<sub>i</sub>* over all h ∈ H, the probability is less than or equal to 2|H|*e*<sup>-2*n*ϵ<sup>2</sup></sup>.
+
+Using *n* from the theorem statement:  
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Prob(A<sub>i</sub>) ≤ 2|H|*e*<sup>-2*n*ϵ<sup>2</sup></sup>  
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ≤ ẟ
+
+### Question: What is Occam's Razor in the context of learning?
+
+Occam's Razor is a law of parsimony, which states that simpler explanations or statements should be preferred over complex ones. This has practical advantages in terms of testability. In terms of the learning problem, a theorem of Occam's Razor would allow us to give a general relationship between the complexity of the rule used to describe the sample training data, and the true error that can be expected (error with respect to *D*).
+
+**Occam's Razor theorem:**
+
+<i>Fix any description language and consider a training sample S drawn from distribution D. With probability at least 1 - ẟ, any rule h with err<sub>S</sub></i>(<i>h</i>)<i> = 0 that can be described using fewer than b bits will have
+
+<p align="center">
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=err_D(h) \le \epsilon \,\, for \,\, S = \frac{1}{\epsilon}[b\textrm{ln}(2) %2B\,\textrm{ln}(\frac{1}{\delta})].">
+</p>
+
+Equivalently, with probability at least 1 - ẟ, all rules with err<sub>S</sub></i>(<i>h</i>)<i> = 0 that can be described in fewer than b bits will have 
+
+<p align="center">
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=err_D(h) \le \frac{b\textrm{ln}(2) %2B\,\textrm{ln}(\frac{1}{\delta})}{\mid S\mid}.">
+</p>
+
+With this conclusion
+
+### Question: What is the regularisation problem?
+
+Simple rules may not give the best result. For example, a simple rule gives 25% training error, whereas a more complex rule provides training error with 10%. The idea then is to combine complexity and simplicity by introducing a penalty for complexity. This is also known as *regularisation*.
+
+Suppose we are looking at a linear regression learning problem. We may have a hundred features, but we don't know in advance which features will be of interest. This gives us a complex polynomial function that is likely to result in overfitting.
+
+<p align="center">
+<i>f</i>(<i>x</i>) = <i>w<sub>1</sub>x<sub>1</sub></i> + <i>w<sub>2</sub>x<sub>2</sub></i> + ... + <i>w<sub>100</sub>x<sub>100</sub></i>
+</p>
+
+If we consider our MSE loss function:
+
+<p align="center">
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=l(W, b) = \frac{1}{N}\sum_{n=1}^{N} \left\| y_n - x_nW - b \right\|^2">
+</p>
+
+We can add a regularisation function that will reduce all the parameters (W). This is called introducing a penalty.
+
+<p align="center">
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=l(W, b) = \frac{1}{N}\sum_{m=1}^{M} \left\| y_m - x_mW - b \right\|^2 %2B \lambda\sum_{n=1}^{N}{w}_{n}^{2}">
+</p>
+
+Note that 𝝀 is the regularisation parameter. If 𝝀 is too large, even the relevant parameters will be reduced too much (only the bias will be left - a straight flat line). That will result in underfitting. So the tradeoff is between bias (underfitting) and variance (overfitting), and we are trying to find the right balance using regularisation.
+
+This particular type of regularisation is called L2 regularisation (squared error of the regularisation term).
+
+Blum et al use the number of bits that describes an hypothesis as the measure of complexity. With this measure, the following corrolary can be stated.
+
+**Complexity corollary:**
+
+<i>Fix any description language and a training sample S. With probability greater than or equal to 1 - δ, all hypotheses satisfy
+
+<p align="center">
+<img style="float: right;" src="https://render.githubusercontent.com/render/math?math=err_D(h) \le err_S(h) %2B \sqrt{\frac{\mathrm{size}(h)\mathrm{ln(4)} %2B \mathrm{ln}(\frac{2}{\delta})}{2\mid{S}\mid}}">
+</p>
+
+where </i>size(*h*)<i> denotes the number of bits needed to describe h in the given language.</i>
+
+The aim then becomes finding a rule that limits the size to the right side of the equation.
